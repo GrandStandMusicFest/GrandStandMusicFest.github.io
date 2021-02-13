@@ -16,10 +16,6 @@ author:
   name:
   email:
   twitter: # twitter username without the @ symbol
-social:
-  name: Malt Template
-  links:
-    - https://github.com/CloudCannon/malt-jekyll-template
 
 # -----
 # Build
