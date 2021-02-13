@@ -11,9 +11,9 @@ map:
   latitude: 37.7938462
   longitude: -122.3970253
 featured_artist:
-  - label_image: /uploads/beers/label-1.png
-    title: Count Chocula
-    link: #
+  - label_image: https://static.wixstatic.com/media/5d3bde_3959278c1c7a41cfb80730c820d3d80d~mv2.jpg/v1/crop/x_278,y_5,w_1675,h_1662/fill/w_359,h_354,al_c,q_80,usm_0.66_1.00_0.01/8Y9A0193.webp
+    title: LUCY DHEGRAE
+    link: http://www.lucydhegrae.com/
   - label_image: /uploads/beers/label-2.png
     title: Professor Pope
     link: #
@@ -83,10 +83,6 @@ _options:
     height: 1200
 ---
 
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-<link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
-
-
 <p class="success">Message sent, we'll be in touch soon.</p>
 
 <p class="dates">
@@ -131,13 +127,7 @@ _options:
 	<a class="email" href="mailto:?subject=I'm going to this event&amp;body=Check%20it%20out%20-%20{{ share_url }}">{% include icons/social-icon.html icon="Email" %}</a>
 </div>
 
-<h3 class="editable">Location</h3>
-<div class="map" id="gmap_canvas"></div>
-
-<div id="osm-map"></div>
-
-
-<address><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
+<h3 class="editable"><a href="https://goo.gl/maps/exEnHzWQ6XUsCaBz5">Location</a></h3>
 
 <h3 class="editable">Photos from 2015</h3>
 <div class="grid">
@@ -165,48 +155,3 @@ _options:
 	<input type="submit" value="Send Message">
 </form>
 
-
-// Where you want to render the map.
-var element = document.getElementById('osm-map');
-
-// Height has to be set. You can do this in CSS too.
-element.style = 'height:300px;';
-
-// Create Leaflet map on map element.
-var map = L.map(element);
-
-// Add OSM tile leayer to the Leaflet map.
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-// Target's GPS coordinates.
-var target = L.latLng('47.50737', '19.04611');
-
-// Set map's center to target with zoom 14.
-map.setView(target, 14);
-
-// Place a marker on the same location.
-L.marker(target).addTo(map);
-
-<!--<script type="text/javascript">
-	window.mapData = {{ page.map | jsonify }};
-
-	function initMap() {
-		var myOptions = {
-			styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}],
-			zoom: window.mapData.zoom,
-			center: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude)
-		};
-		var map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
-		var marker = new google.maps.Marker({
-			map: map,
-			position: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude)
-		});
-
-		google.maps.event.addDomListener(window, "resize", function () {
-			map.setCenter(myOptions.center);
-		});
-	}
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_javascript_api_key }}&amp;callback=initMap"></script>-->
