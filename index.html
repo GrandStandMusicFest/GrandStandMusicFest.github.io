@@ -10,7 +10,7 @@ map:
   zoom: 16
   latitude: 37.7938462
   longitude: -122.3970253
-featured_brews:
+featured_artist:
   - label_image: /uploads/beers/label-1.png
     title: Count Chocula
     link: #
@@ -102,9 +102,9 @@ _options:
 <p class="editable">GrandStand Music Festival is a nonprofit organization that merges the arts with social activism into one-of-a-kind events that take a stand against sex trafficking in the state of Michigan.</p>
 <p class="editable">GrandStand Music Festival aims to enrich Michigan communities through high quality musical performances, and to use these concerts to raise funding and awareness to help combat sex trafficking in Michigan</p>
 
-<h3 class="editable">Featured brews</h3>
+<h3 class="editable">Featured artist</h3>
 <div class="gallery">
-	{% for feature in page.featured_brews %}
+	{% for feature in page.featured_artist %}
 		<a href="{% include relative-src.html src=feature.link %}">
 			<div class="inner-wrapper">
 				<img src="{% include relative-src.html src=feature.label_image %}" alt="{{ feature.title }}">
